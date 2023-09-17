@@ -1,3 +1,10 @@
+import os
+import tensorflow as tf
+tf.config.threading.set_inter_op_parallelism_threads(1)
+tf.config.threading.set_intra_op_parallelism_threads(1)
+os.environ["OMP_NUM_THREADS"] = "1"
+
+
 import data_management as dm
 from pathlib import Path
 # fetch the root directory to read config
@@ -28,6 +35,8 @@ if __name__ == '__main__':
     
     import joblib
 
+
+
     trainX, trainY, testX, testY = dm.load_dataset()
     pipe = joblib.load(config.PIPELINE_PATH)
     
@@ -56,6 +65,8 @@ if __name__ == '__main__':
 
     inference_time = end_time - start_time
     print(f"Inference time per CPU thread per sample: {inference_time / len(testX)*1000} ms")
+
+    print(f"Inference time per CPU thread for {len(testX)} test samples : {inference_time} s")
     
     print(test_y)
 
