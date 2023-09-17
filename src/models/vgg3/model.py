@@ -51,6 +51,7 @@ def cnn_model(kernel_size = config.kernel_size,
         # compile model
         opt = SGD(learning_rate=0.001, momentum=0.9)
         model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+        print(model.summary())
         return model
 
 
