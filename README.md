@@ -16,24 +16,33 @@ conda env create -f environment.yml
  import sklearn
 
 
-4. Explanation of folder structure:
-
- cifar10-classification \
-├── configs \
-├── logs\
-├── notebooks\
-├── reports\
-│   ├── CNN_research_env.ipynb\
-│   ├── Depthwise_Convolutions_CNN.ipynb\
-├── src\
-│   ├── models\
-│   ├── ├── model1\
-│   ├── ├── ├── describe_dataset_csv.py\
-│   ├── ├── ├── explore_dataset_idx.py\
-│   └── ├── ├── README.md\
-├── .gitignore\
-├── LICENSE\
-└── README.md\
-
+4. Folder and File structure:
+```
+cifar10-classification
+├── configs
+│   └── __pycache__
+├── logs
+│   ├── fit
+│   │   ├── 20230916-143017
+│   │   │   ├── train
+│   │   │   └── validation
+│   │   ├── 20230916-143956
+│   │   │   ├── train
+│   │   │   └── validation
+│   │   ├── 20230916-223934
+│   │   │   ├── train
+│   │   │   └── validation
+│   │   └── 20230916-230036
+│   │       ├── train
+│   │       └── validation
+│   └── hyperband
+├── notebooks
+├── reports
+└── src
+    └── models
+        └── model1
+            ├── __pycache__
+            └── artifacts
+```
 
 
