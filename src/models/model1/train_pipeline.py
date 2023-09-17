@@ -9,6 +9,7 @@ config_dir = (os.path.abspath(Path(__file__).parent.parent.parent.parent) + '/co
 sys.path.append(config_dir)
 print(config_dir)
 import config
+import wandb
 
 import pipeline as pipe
 import preprocessors as pp

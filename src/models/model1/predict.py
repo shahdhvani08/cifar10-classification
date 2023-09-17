@@ -7,6 +7,7 @@ config_dir = (os.path.abspath(Path(__file__).parent.parent.parent.parent) + '/co
 sys.path.append(config_dir)
 print(config_dir)
 import config
+import time
 import preprocessors as pp
 import numpy as np
 from sklearn.metrics import  accuracy_score, confusion_matrix
@@ -47,10 +48,15 @@ if __name__ == '__main__':
 
 
     modeltest = pipe.named_steps['cnn_model']
+    start_time = time.time()
     predictions = modeltest.predict(testX)
     print(predictions)
     print(predictions.shape)
+    end_time = time.time()
 
+    inference_time = end_time - start_time
+    print(f"Inference time per CPU thread per sample: {inference_time / len(testX)*1000} ms")
+    
     print(test_y)
 
     y_pred=np.argmax(predictions, axis=1)

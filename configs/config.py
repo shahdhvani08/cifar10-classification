@@ -15,7 +15,7 @@ dropout_conv = 0.2
 dropout_dense = 0.2
 
 # MODEL PERSISTING
-MODEL_PATH = 'cnn_model.h5'
-PIPELINE_PATH = 'cnn_pipe.pkl'
-CLASSES_PATH = 'classes.pkl'
-ENCODER_PATH = 'encoder.pkl'
+MODEL_PATH = 'artifacts/cnn_model.h5'
+PIPELINE_PATH = 'artifacts/cnn_pipe.pkl'
+CLASSES_PATH = 'artifacts/classes.pkl'
+ENCODER_PATH = 'artifacts/encoder.pkl'
