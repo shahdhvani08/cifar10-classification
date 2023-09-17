@@ -29,7 +29,7 @@ cifar10-classification
 ├── reports
 └── src
  └── models
-     └── model1
+     └── vgg3
          ├── __pycache__
          └── artifacts
 ```
@@ -48,15 +48,15 @@ cifar10-classification
 
 # Training
 
-1.  Go the folder src/models/model1/
+1.  Navigate to the folder: src/models/vgg3/
 2.  RUN: `python train_pipeline.py`
 
 # Predictions
 
-1.  Go the folder src/models/model1/
+1.  Navigate to the folder: src/models/vgg3/
 2.  RUN: `python predict.py`
 
-# Research Environment 
+# Research Environment
 
 1.  CNN_research_env.ipynb - implementation of VGG (3 blocks) in TensorFlow and Hyperparameter tuning
 2.  Depthwise_Convolutions_CNN.ipynb - Using depthwise convolutions to reduce model size
