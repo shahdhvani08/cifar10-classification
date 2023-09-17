@@ -24,11 +24,12 @@ def run_training(save_result: bool = True):
     y_train = enc.transform(trainY)
     print(np.unique(y_train))
 
-    pipe.pipe.fit(trainX, y_train)
+    history = pipe.pipe.fit(trainX, y_train)
+
+    print(history)
     
     if save_result:
         joblib.dump(enc, config.ENCODER_PATH)
-        print(pipe.pipe)
         dm.save_pipeline_keras(pipe.pipe)
 
 

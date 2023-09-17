@@ -14,6 +14,7 @@ pipe = Pipeline([
                 ('cnn_model', model.cnn_clf)
             ])
 
+print("From pipeline.py",pipe)
 
 if __name__ == '__main__':
     
@@ -38,10 +39,15 @@ if __name__ == '__main__':
     
     test_y = enc.transform(testY)
     predictions = pipe.predict(testX)
+    print(predictions.shape)
+    # evaluate model
+    predictions = pipe.predict(testX)
+    print(predictions)
     
-    acc = accuracy_score(enc.encoder.transform(testY),
+    print(test_y)
+    acc = accuracy_score(test_y,
                    predictions,
                    normalize=True,
                    sample_weight=None)
-    
-    print('Acuracy: ', acc)
+
+    print("Accuracy", acc)               

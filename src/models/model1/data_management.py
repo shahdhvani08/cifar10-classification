@@ -22,7 +22,6 @@ import config
 
 def load_dataset():
     # load cifar10 dataset
-    print("Loading dataset")
     (trainX, trainy), (testX, testy)  = datasets.cifar10.load_data()
     # summarize loaded dataset
     print('Train: X=%s, y=%s' % (trainX.shape, trainy.shape))
@@ -31,34 +30,39 @@ def load_dataset():
     return trainX, trainy, testX, testy
 
 
-def save_pipeline_keras(model):
+
+
+def save_pipeline_keras(pipe):
     
-    joblib.dump(model.named_steps['dataset'], config.PIPELINE_PATH)
-    joblib.dump(model.named_steps['cnn_model'].classes_, config.CLASSES_PATH)
-    joblib.dump(model.named_steps['cnn_model'].classes_, config.MODEL_PATH)
-    #model.named_steps['cnn_model'].model.save(config.MODEL_PATH)
-    
+    joblib.dump(pipe.named_steps['dataset'], config.PIPELINE_PATH)
+    joblib.dump(pipe.named_steps['cnn_model'].classes_, config.CLASSES_PATH)
+    print(pipe)
+    print(pipe.named_steps['cnn_model'])
+    # This hack allows us to save the sklearn pipeline:
+    #pipe.named_steps['cnn_model'].model = None
+    pipe.named_steps['cnn_model'].model.save(config.MODEL_PATH)
     
 def load_pipeline_keras():
     dataset = joblib.load(config.PIPELINE_PATH)
     
     build_model = lambda: load_model(config.MODEL_PATH)
-    
-    classifier = KerasClassifier(build_fn=build_model,
+    print(build_model)
+    """classifier = KerasClassifier(model=build_model,
                           batch_size=config.BATCH_SIZE, 
                           validation_split=10,
                           epochs=config.EPOCHS,
                           verbose=2,
                           callbacks=m.callbacks_list,
                           #image_size = config.IMAGE_SIZE
-                          )
+                          )"""
     
-    classifier.classes_ = joblib.load(config.CLASSES_PATH)
-    classifier.model = build_model()
+    classes = joblib.load(config.CLASSES_PATH)
+    classifier = build_model()
     
     return Pipeline([
         ('dataset', dataset),
-        ('cnn_model', classifier)
+        ('cnn_model', classifier),
+        ('classes', classes)
     ])
     
     

@@ -3,7 +3,7 @@ DATA_FOLDER = ''
 
 # MODEL FITTING
 BATCH_SIZE = 48
-EPOCHS = 1
+EPOCHS = 2
 
 # MODEL PARAMETERS (SHOULD BE UPDATED AFTER HYPERPARAMETER TUNING CONSIDERING THE TUNED PARAMETERS)
 kernel_size = (3,3)
@@ -15,7 +15,7 @@ dropout_conv = 0.2
 dropout_dense = 0.2
 
 # MODEL PERSISTING
-MODEL_PATH = "cnn_model.h5"
+MODEL_PATH = 'cnn_model.h5'
 PIPELINE_PATH = 'cnn_pipe.pkl'
 CLASSES_PATH = 'classes.pkl'
 ENCODER_PATH = 'encoder.pkl'

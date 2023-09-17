@@ -33,7 +33,7 @@ def cnn_model(kernel_size = config.kernel_size,
               third_filters = config.third_filters,
               dropout_conv = config.dropout_conv,
               dropout_dense = config.dropout_dense):
-
+        print("model building")
         model = Sequential()
         model.add(Conv2D(first_filters, kernel_size, activation='relu', kernel_initializer='he_uniform', padding='same', input_shape=(32, 32, 3)))
         model.add(Conv2D(first_filters, kernel_size, activation='relu', kernel_initializer='he_uniform', padding='same'))
@@ -59,7 +59,7 @@ def cnn_model(kernel_size = config.kernel_size,
 
 
 checkpoint = ModelCheckpoint(config.MODEL_PATH,
-                             monitor='acc',
+                             monitor='val_accuracy',
                              verbose=1, 
                              save_best_only=True,
                              mode='max')
@@ -75,13 +75,16 @@ reduce_lr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=8,
 
 callbacks_list = [checkpoint, earlystopper, reduce_lr]
 
-
-cnn_clf = KerasClassifier(build_fn=cnn_model,
+#cnn_clf = cnn_model()
+opt = SGD(learning_rate=0.001, momentum=0.9)
+cnn_clf = KerasClassifier(model=cnn_model(),
                           batch_size=config.BATCH_SIZE, 
                           validation_split=0.2,
                           epochs=config.EPOCHS,
                           verbose=1,
-                          callbacks=callbacks_list
+                          callbacks=callbacks_list,
+                          optimizer=opt,
+                          metrics=['accuracy']
                           )
 
 if __name__ == '__main__':
