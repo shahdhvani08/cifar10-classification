@@ -18,17 +18,22 @@ conda env create -f environment.yml
 
 4. Explanation of folder structure:
 
- cifar10-classification
-├── configs
-├── logs
-├── notebooks
-│   ├── CNN_research_env.ipynb
-│   ├── Depthwise_Convolutions_CNN.ipynb
-├── src
-│   ├── models
-│   ├── ├── model1
-│   ├── ├── ├── describe_dataset_csv.py
-│   ├── ├── ├── explore_dataset_idx.py
-│   └── ├── ├── README.md
-├── .gitignore
-└── README.md
+ cifar10-classification \
+├── configs \
+├── logs\
+├── notebooks\
+├── reports\
+│   ├── CNN_research_env.ipynb\
+│   ├── Depthwise_Convolutions_CNN.ipynb\
+├── src\
+│   ├── models\
+│   ├── ├── model1\
+│   ├── ├── ├── describe_dataset_csv.py\
+│   ├── ├── ├── explore_dataset_idx.py\
+│   └── ├── ├── README.md\
+├── .gitignore\
+├── LICENSE\
+└── README.md\
+
+
+
