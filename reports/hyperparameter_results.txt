@@ -1,0 +1,154 @@
+Search space summary
+Default search space size: 4
+dropout_2 (Float)
+{'default': 0.25, 'conditions': [], 'min_value': 0.0, 'max_value': 0.5, 'step': 0.05, 'sampling': 'linear'}
+units (Int)
+{'default': 128, 'conditions': [], 'min_value': 128, 'max_value': 256, 'step': 32, 'sampling': 'linear'}
+dropout_3 (Float)
+{'default': 0.2, 'conditions': [], 'min_value': 0.02, 'max_value': 0.2, 'step': 0.05, 'sampling': 'linear'}
+learning_rate (Float)
+{'default': 0.001, 'conditions': [], 'min_value': 0.0001, 'max_value': 0.01, 'step': None, 'sampling': 'log'}
+
+
+Trial 30 Complete [00h 07m 23s]
+val_accuracy: 0.79339998960495
+
+Best val_accuracy So Far: 0.8127999901771545
+Total elapsed time: 01h 27m 51s
+INFO:tensorflow:Oracle triggered exit
+
+Results summary
+Results in ../logs/hyperband/cifar10
+Showing 10 best trials
+Objective(name="val_accuracy", direction="max")
+
+Trial 0017 summary
+Hyperparameters:
+dropout_2: 0.30000000000000004
+units: 224
+dropout_3: 0.02
+learning_rate: 0.0008264439766792489
+tuner/epochs: 10
+tuner/initial_epoch: 4
+tuner/bracket: 2
+tuner/round: 2
+tuner/trial_id: 0013
+Score: 0.8127999901771545
+
+Trial 0027 summary
+Hyperparameters:
+dropout_2: 0.35000000000000003
+units: 256
+dropout_3: 0.02
+learning_rate: 0.0003491260272208854
+tuner/epochs: 10
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
+Score: 0.8059999942779541
+
+Trial 0026 summary
+Hyperparameters:
+dropout_2: 0.1
+units: 256
+dropout_3: 0.07
+learning_rate: 0.0005509513888645584
+tuner/epochs: 10
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
+Score: 0.8046000003814697
+
+Trial 0016 summary
+Hyperparameters:
+dropout_2: 0.2
+units: 192
+dropout_3: 0.07
+learning_rate: 0.0008894905887153519
+tuner/epochs: 10
+tuner/initial_epoch: 4
+tuner/bracket: 2
+tuner/round: 2
+tuner/trial_id: 0014
+Score: 0.798799991607666
+
+Trial 0025 summary
+Hyperparameters:
+dropout_2: 0.2
+units: 256
+dropout_3: 0.07
+learning_rate: 0.0008960175671873151
+tuner/epochs: 10
+tuner/initial_epoch: 4
+tuner/bracket: 1
+tuner/round: 1
+tuner/trial_id: 0021
+Score: 0.7986000180244446
+
+Trial 0024 summary
+Hyperparameters:
+dropout_2: 0.0
+units: 192
+dropout_3: 0.02
+learning_rate: 0.00041268008323824807
+tuner/epochs: 10
+tuner/initial_epoch: 4
+tuner/bracket: 1
+tuner/round: 1
+tuner/trial_id: 0020
+Score: 0.7946000099182129
+
+Trial 0029 summary
+Hyperparameters:
+dropout_2: 0.05
+units: 224
+dropout_3: 0.02
+learning_rate: 0.0006237028864858578
+tuner/epochs: 10
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
+Score: 0.79339998960495
+
+Trial 0014 summary
+Hyperparameters:
+dropout_2: 0.2
+units: 192
+dropout_3: 0.07
+learning_rate: 0.0008894905887153519
+tuner/epochs: 4
+tuner/initial_epoch: 2
+tuner/bracket: 2
+tuner/round: 1
+tuner/trial_id: 0002
+Score: 0.767799973487854
+
+Trial 0013 summary
+Hyperparameters:
+dropout_2: 0.30000000000000004
+units: 224
+dropout_3: 0.02
+learning_rate: 0.0008264439766792489
+tuner/epochs: 4
+tuner/initial_epoch: 2
+tuner/bracket: 2
+tuner/round: 1
+tuner/trial_id: 0009
+Score: 0.7671999931335449
+
+Trial 0012 summary
+Hyperparameters:
+dropout_2: 0.15000000000000002
+units: 224
+dropout_3: 0.02
+learning_rate: 0.0006562536901904111
+tuner/epochs: 4
+tuner/initial_epoch: 2
+tuner/bracket: 2
+tuner/round: 1
+tuner/trial_id: 0010
+Score: 0.7670000195503235
+
+
+Optimal Parameters:
+{'dropout_2': 0.30000000000000004, 'units': 224, 'dropout_3': 0.02, 'learning_rate': 0.0008264439766792489, 'tuner/epochs': 10, 'tuner/initial_epoch': 4, 'tuner/bracket': 2, 'tuner/round': 2, 'tuner/trial_id': '0013'}
